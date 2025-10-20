@@ -1,28 +1,34 @@
-//array problem H Hotel
-
 #include <stdio.h>
 
+
 int main (){
-	int n;
-	scanf("%d", &n);
-	int x[n];
+	int t;
+	int x[5050];
 	
-	for (int i = 0 ; i < n ; i++){
-		scanf("%d", &x[i]);
+	scanf("%d", &t);
+	for (int tc = 0 ; tc < t; tc++){
+		scanf("%d", &x[tc]);
 	}
-	int counter = 1;
+	int happy = 0;
 	
-	for (int i = 0; i < n - 1 ; i++){
-		for (int j = i+1 ; j < n ; j++){
-			if (x[i]==x[j]){
+	for (int i = 0 ; i < t ; i++){
+		int unavailable = 0;
+		for (int j = 0 ; j < i ; j++){
+			if (x[i] == x[j]){
+				unavailable = 1;
 				break;
-			} else if (i == n-1 || j == n - 1){
-				counter++;
-			}
-			
+			}	
 		}
+		if (unavailable == 0){
+				happy++;
+		}
+		
+		
 	}
-	printf("%d\n", counter);
+	
+	printf("%d\n", happy);
+	
+	
+	
 	
 }
-
